@@ -1,15 +1,34 @@
-//
-//  main.c
-//  test
-//
-//  Created by 20161104601 on 17/6/7.
-//  Copyright © 2017年 20161104601. All rights reserved.
-//
 
-#include <stdio.h>
-
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+#include<stdio.h>
+void Print(int *num, int n)
+{
+    int i;
+    for(i = 0; i < n; i++)
+        printf("%d ", num[i]);
+    puts("\n");
+    return;
+}
+void Bubble_Sort(int *num, int n)
+{
+    int i, j;
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; i + j < n - 1; j++)
+        {
+            if(num[j] > num[j + 1])
+            {
+                int temp = num[j];
+                num[j] = num[j + 1];
+                num[j + 1] = temp;
+            }
+            Print(num, n);
+        }
+    }
+    return;
+}
+int main()
+{
+    int num[8] = {87, 12, 56, 45, 78};
+    Bubble_Sort(num, 5);
     return 0;
 }
